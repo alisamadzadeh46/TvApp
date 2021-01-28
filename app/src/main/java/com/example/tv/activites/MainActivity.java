@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.tv.R;
 import com.example.tv.adapters.TVShowsAdapter;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
     private void doInitialization() {
         activityMainBinding.tvShowsRecyclerView.setHasFixedSize(true);
         viewModel = new ViewModelProvider(this).get(MostPopularTVShowsViewModel.class);
-        tvShowsAdapter = new TVShowsAdapter(tvShowsList,this);
+        tvShowsAdapter = new TVShowsAdapter(tvShowsList, this);
         activityMainBinding.tvShowsRecyclerView.setAdapter(tvShowsAdapter);
         activityMainBinding.tvShowsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
                 }
             }
         });
+        activityMainBinding.imageWatchlist.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), WatchlistActivity.class)));
         getMostPopularTVShows();
     }
 
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
                 if (mostPopularTVShowsResponse.getTvShows() != null) {
                     int oldCount = tvShowsList.size();
                     tvShowsList.addAll(mostPopularTVShowsResponse.getTvShows());
-                    tvShowsAdapter.notifyItemRangeInserted(oldCount,tvShowsList.size());
+                    tvShowsAdapter.notifyItemRangeInserted(oldCount, tvShowsList.size());
                 }
             }
         });
@@ -83,13 +85,8 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
 
     @Override
     public void onTVShowClicked(TVShows tvShows) {
-        Intent intent = new Intent(getApplicationContext(),TVShowDetailsActivity.class);
-        intent.putExtra("id",tvShows.getId());
-        intent.putExtra("name",tvShows.getName());
-        intent.putExtra("startDate",tvShows.getStart_date());
-        intent.putExtra("country",tvShows.getCountry());
-        intent.putExtra("network",tvShows.getNetwork());
-        intent.putExtra("status",tvShows.getStatus());
+        Intent intent = new Intent(getApplicationContext(), TVShowDetailsActivity.class);
+        intent.putExtra("tvShows", tvShows);
         startActivity(intent);
     }
 }

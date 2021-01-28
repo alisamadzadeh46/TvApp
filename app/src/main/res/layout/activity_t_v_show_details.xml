@@ -324,12 +324,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_8sdp"
+                    android:backgroundTint="@color/purple_700"
                     android:fontFamily="@font/font"
                     android:includeFontPadding="false"
                     android:text="@string/website"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
-                    android:backgroundTint="@color/purple_700"
                     app:cornerRadius="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/buttonEpisodes"
@@ -346,13 +346,13 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
+                    android:backgroundTint="@color/colorTextOther"
                     android:fontFamily="@font/font"
                     android:includeFontPadding="false"
                     android:text="@string/episodes"
-                    android:backgroundTint="@color/colorTextOther"
+                    android:textColor="#212121"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
-                    android:textColor="#212121"
                     app:cornerRadius="@dimen/_6sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -373,5 +373,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageWatchlist"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/background_fab"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_watchlist"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:backgroundTint="@color/colorTextIcons"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
