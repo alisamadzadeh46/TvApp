@@ -14,4 +14,7 @@ public interface ApiService {
 
     @GET("show-details")
     Call<TVShowDetailsResponse> getTVShowsDetails(@Query("q") String tvShowId);
+
+    @GET("search")
+    Call<TVShowsResponse> searchTVShow(@Query("q") String query, @Query("page") int page);
 }

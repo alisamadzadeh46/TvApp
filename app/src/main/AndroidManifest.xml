@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tv">
-        <activity android:name=".activites.WatchlistActivity"></activity>
+        <activity android:name=".activites.SearchActivity"></activity>
+        <activity android:name=".activites.WatchlistActivity" />
         <activity android:name=".activites.TVShowDetailsActivity" />
         <activity android:name=".activites.MainActivity">
             <intent-filter>
